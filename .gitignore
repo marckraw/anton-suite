@@ -10,6 +10,5 @@ node_modules
 
 # outputs
 dist
-lib
 .next
 .build
