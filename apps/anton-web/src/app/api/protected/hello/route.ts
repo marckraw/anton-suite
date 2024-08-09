@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     }
 
 
-    const response = await anton.client.ai.chat({
+    const response = await anton.client.chat({
         messages: [
             {
                 content: 'Hey there, how are you ? :)',
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const {message} = await request.json();
 
-    const response = await anton.client.ai.chat({
+    const response = await anton.client.chat({
         messages: [
             {
                 content: message,
