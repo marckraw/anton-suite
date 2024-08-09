@@ -24,7 +24,7 @@ export class AnthropicModel implements AIModel {
     });
   }
 
-  setSystemMessage(message: string): void {
+  setSystemMessage(message: string) {
     this.systemMessage = message;
   }
 
