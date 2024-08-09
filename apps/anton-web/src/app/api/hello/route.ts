@@ -1,7 +1,7 @@
 import {AntonSDK} from "@mrck-labs/anton-sdk-test";
 
 export async function GET(request: Request) {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    const apiKey = process.env.ANTHROPIC_API_KEY || "not_set";
 
     console.log('This is api key ? ');
     console.log(apiKey);
