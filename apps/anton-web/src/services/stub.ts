@@ -1,0 +1,1 @@
+export const stubService = () => "just stub service for now"
