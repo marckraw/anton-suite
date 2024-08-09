@@ -1,0 +1,33 @@
+{
+  "name": "@mrck-labs/root",
+  "private": true,
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:vite-react-app": "npm run dev -w @mrck-labs/vite-react-app",
+    "dev:utils": "npm run dev -w @mrck-labs/utils",
+    "dev:anton-sdk": "npm run dev -w @mrck-labs/anton-sdk-test",
+    "dev:lib-a": "npm run dev -w @mrck-labs/lib-a",
+    "dev:anton:utils": "concurrently \"npm run dev:utils\" \"npm run dev:anton-sdk-test\"",
+    "build:utils": "npm run build -w @mrck-labs/utils",
+    "build:lib-a": "npm run build -w @mrck-labs/lib-a",
+    "build": "turbo run build",
+    "release:lib-a": "npm run release -w @mrck-labs/lib-a",
+    "release:utils": "npm run release -w @mrck-labs/utils",
+    "release": "npm run release:lib-a && npm run release:utils",
+    "graph:build": "npx turbo run build --graph=graph.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.0.12"
+  },
+  "packageManager": "npm@10.2.4"
+}

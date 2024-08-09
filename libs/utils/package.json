@@ -1,0 +1,43 @@
+{
+  "name": "@mrck-labs/utils",
+  "version": "1.2.3",
+  "description": "",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "dev": "tsup --watch",
+    "build": "npm run clean && tsup",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "prerelease": "npm version patch",
+    "release": "npm publish"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "dts": true,
+    "sourcemap": true,
+    "format": [
+      "esm",
+      "cjs"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mrck-labs/lib-a": "*",
+    "pino": "^9.3.2"
+  },
+  "devDependencies": {
+    "@typed/node": "^6.7.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}

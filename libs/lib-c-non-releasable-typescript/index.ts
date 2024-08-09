@@ -1,0 +1,1 @@
+export const noReleaseTypescript = () => console.log("noReleaseTypescript c")

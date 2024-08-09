@@ -1,0 +1,15 @@
+.idea
+.vscode
+.vs_code
+.DS_Store
+node_modules
+.turbo
+
+# secrets
+.env
+
+# outputs
+dist
+lib
+.next
+.build

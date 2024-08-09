@@ -1,0 +1,1 @@
+export const liba = () => console.log("lib Aha!")

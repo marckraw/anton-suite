@@ -1,0 +1,38 @@
+{
+  "name": "@mrck-labs/lib-a",
+  "version": "1.1.1",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "dev": "tsup --watch",
+    "build": "npm run clean && tsup",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "prerelease": "npm version patch",
+    "release": "npm publish"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "dts": true,
+    "sourcemap": true,
+    "format": [
+      "esm",
+      "cjs"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}

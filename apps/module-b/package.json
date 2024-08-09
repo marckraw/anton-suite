@@ -1,0 +1,23 @@
+{
+  "name": "@mrck-labs/module-b",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mrck-labs/module-a": "*",
+    "@mrck-labs/lib-a": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

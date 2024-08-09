@@ -1,0 +1,44 @@
+{
+  "name": "@mrck-labs/anton-cli",
+  "version": "0.0.1",
+  "description": "",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "dev": "tsup --watch",
+    "build": "npm run clean && tsup",
+    "start": "npm run build && node --env-file=.env dist/index.js",
+    "prerelease": "npm version patch",
+    "release": "npm publish"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "dts": true,
+    "sourcemap": true,
+    "format": [
+      "esm",
+      "cjs"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mrck-labs/anton-sdk-test": "*"
+  },
+  "devDependencies": {
+    "@typed/node": "^6.7.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "bin": {
+    "anton": "dist/index.js"
+  }
+}
