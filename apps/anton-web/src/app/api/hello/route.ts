@@ -1,30 +1,9 @@
-import {AntonSDK} from "@mrck-labs/anton-sdk-test";
 import {createLogger} from "@/app/api-src/logger";
-import {createRequestResponseMocks} from "next/dist/server/lib/mock-request";
+import {initializeAnton} from "@/app/api-src/anton";
 
 const logger = createLogger({name: "hello", level: "info"})
 
-const initializeAnton = () => {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
 
-    if(!apiKey) {
-        return {
-            client: null,
-            error: {
-                status: 401,
-                body: 'API key not found',
-            },
-        }
-    }
-
-
-    const anton = new AntonSDK({ type: 'anthropic', apiKey: apiKey });
-
-    return {
-        client: anton,
-        error: false,
-    }
-}
 
 export async function GET(request: Request) {
     logger.info("GET /hello")
