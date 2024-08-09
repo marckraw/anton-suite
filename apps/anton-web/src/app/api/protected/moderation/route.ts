@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     const {message} = await request.json() as ChatRequest;
 
-    const response = await anton.client.ai.moderation(message);
+    const response = await anton.client.moderation(message);
 
     return Response.json({data: response})
 }
