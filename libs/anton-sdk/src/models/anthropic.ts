@@ -7,6 +7,7 @@ import { AnthropicCompletionResponse, ChatResponse, ENDPOINTS } from '@mrck-labs
 export class AnthropicModel implements AIModel {
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.anthropic.baseUrl;
+  private systemMessage: string = "Your name is Anton. Be respectful.";
 
   constructor(private apiKey: string) {
     if (isBrowser) {
@@ -23,10 +24,14 @@ export class AnthropicModel implements AIModel {
     });
   }
 
+  setSystemMessage(message: string): void {
+    this.systemMessage = message;
+  }
+
   async chat(messages: Message[]): Promise<ChatResponse> {
     try {
       const response = await this.api.post<AnthropicCompletionResponse>(ENDPOINTS.anthropic.v1.completions, {
-        system: "Your name is Anton. Be respectful.",
+        system: this.systemMessage,
         model: "claude-3-5-sonnet-20240620",
         max_tokens: 1024,
         messages,

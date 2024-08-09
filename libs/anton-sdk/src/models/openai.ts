@@ -7,13 +7,12 @@ import { ENDPOINTS, OpenAICompletionResponse } from '@mrck-labs/api-interface';
 export class OpenAIModel implements AIModel {
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.openai.baseUrl;
+  private systemMessage: string = "Your name is Anton. Be respectful."
 
   constructor(private apiKey: string) {
     if (isBrowser) {
       throwErrorIfBrowser("OpenAIModel");
     }
-    console.log("This is provided apikey: ")
-    console.log(apiKey)
 
     this.api = axios.create({
       baseURL: this.baseUrl,
@@ -24,11 +23,15 @@ export class OpenAIModel implements AIModel {
     });
   }
 
+  setSystemMessage(message: string): void {
+    this.systemMessage = message;
+  }
+
   async chat(messages: Message[]): Promise<any> {
     try {
       const response = await this.api.post<OpenAICompletionResponse>(ENDPOINTS.openai.v1.completions, {
         model: 'gpt-4o',
-        messages
+        messages: [{role: 'system', content: this.systemMessage}, ...messages]
       })
 
 
