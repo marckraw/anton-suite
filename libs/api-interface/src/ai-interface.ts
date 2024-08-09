@@ -1,6 +1,6 @@
 export interface AIModel {
   chat(messages: Message[]): Promise<ChatResponse>;
-  setSystemMessage?(message: string): Promise<void>;
+  setSystemMessage?(message: string): void;
 }
 
 export type Role = "system" | "user" | "assistant"
