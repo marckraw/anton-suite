@@ -10,7 +10,6 @@ import {
   ExtractSpecificStyles,
   WithThemeConfig,
 } from "@/tva/helpers.tva.types";
-import { AntonSDK } from "@mrck-labs/anton-sdk-second-approach";
 
 export type TeaserStyles = ExtractSpecificStyles<
   typeof teaserStyles,
@@ -21,20 +20,6 @@ export interface TeaserProps
 
 export const Teaser: FC<TeaserProps> = (props) => {
   const { themeConfig } = props;
-  useEffect(() => {
-    fetch("http://localhost:8080/posts")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const anton = new AntonSDK({ type: "anthropic", apiKey: "" });
-      const response = await anton.chat([{ role: "user", content: "Hello" }]);
-      console.log("This is response from anton  motherfucker");
-      console.log(response);
-    })();
-  }, []);
 
   const mergedStyles = themeConfig
     ? deepMerge(teaserStyles, themeConfig)

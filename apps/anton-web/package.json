@@ -6,7 +6,8 @@
     "dev": "next dev | pino-pretty",
     "build": "next build | pino-pretty",
     "start": "next start | pino-pretty",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@mrck-labs/anton-sdk-test": "*",
