@@ -24,19 +24,13 @@ export class AnthropicModel implements AIModel {
   }
 
   async chat(messages: Message[]): Promise<ChatResponse> {
-    console.log("sending  ?")
     try {
-      console.log("This is url: ")
-      console.log(ENDPOINTS.anthropic.v1.completions)
       const response = await this.api.post<AnthropicCompletionResponse>(ENDPOINTS.anthropic.v1.completions, {
         system: "Your name is Anton. Be respectful.",
         model: "claude-3-5-sonnet-20240620",
         max_tokens: 1024,
         messages,
       });
-
-      console.log("This is response ? ")
-      console.log(response)
 
 
       const role = response.data.role;
