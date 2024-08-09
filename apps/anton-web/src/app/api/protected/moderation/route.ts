@@ -1,15 +1,14 @@
 import {createLogger} from "@/app/api-src/logger";
 import {initializeAnthropicAnton} from "@/app/api-src/anton";
-import {Message} from "@mrck-labs/api-interface";
 
-const logger = createLogger({name: "chat", level: "info"})
+const logger = createLogger({name: "moderation", level: "info"})
 
 interface ChatRequest {
-    messages: Message[]
+    message: string
 }
 
 export async function POST(request: Request) {
-    logger.info("POST /chat")
+    logger.info("POST /moderation")
 
     const anton = initializeAnthropicAnton()
 
@@ -17,9 +16,9 @@ export async function POST(request: Request) {
         return Response.json(anton.error)
     }
 
-    const {messages} = await request.json() as ChatRequest;
+    const {message} = await request.json() as ChatRequest;
 
-    const response = await anton.client.chat({messages})
+    const response = await anton.client.ai.moderation(message);
 
     return Response.json({data: response})
 }

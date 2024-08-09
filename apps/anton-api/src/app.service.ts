@@ -26,14 +26,14 @@ export class AppService {
 
     logger.info('logging from AppService.getCompletion()');
 
-    const anton = new AntonSDK({ type: 'anthropic', apiKey: apiKey });
+    const anton = AntonSDK.create({ type: 'anthropic', apiKey: apiKey });
 
-    const response = await anton.chat([
-      {
-        content: 'Hey there, how are you ? :)',
-        role: 'user',
-      },
-    ]);
+    const response = await anton.chat({messages: [
+        {
+          content: 'Hey there, how are you ? :)',
+          role: 'user',
+        },
+      ]});
 
     return response;
   }
@@ -43,13 +43,15 @@ export class AppService {
     let apiKey = process.env.ANTHROPIC_API_KEY;
     let type: 'anthropic' | 'openai' = 'anthropic';
 
-    if (anthropicModels.includes(model)) {
-      type = 'anthropic';
-      apiKey = process.env.ANTHROPIC_API_KEY;
-    } else {
-      type = 'openai';
-      apiKey = process.env.OPENAI_API_KEY;
-    }
+
+    // TODO: bring back this functionality
+    // if (anthropicModels.includes(model)) {
+    //   type = 'anthropic';
+    //   apiKey = process.env.ANTHROPIC_API_KEY;
+    // } else {
+    //   type = 'openai';
+    //   apiKey = process.env.OPENAI_API_KEY;
+    // }
 
     const config = {
       type,
@@ -59,14 +61,16 @@ export class AppService {
 
     logger.info('logging from AppService.getCompletion()');
 
-    const anton = new AntonSDK(config);
+    const anton = AntonSDK.create({type: 'anthropic', apiKey: config.apiKey});
 
-    const response = await anton.chat([
-      {
-        content: dto.content,
-        role: 'user',
-      },
-    ]);
+    const response = await anton.chat({
+      messages: [
+        {
+          content: dto.content,
+          role: 'user',
+        },
+      ]
+    });
 
     return response;
   }

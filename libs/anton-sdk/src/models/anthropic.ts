@@ -1,18 +1,28 @@
 import axios from "axios";
 import type { AxiosInstance } from "axios";
-import { AIModel, Message } from "./base";
 import { isBrowser, throwErrorIfBrowser } from '@mrck-labs/utils';
-import { AnthropicCompletionResponse, ChatResponse, ENDPOINTS } from '@mrck-labs/api-interface';
+import {
+  AnthropicChatArgs,
+  AnthropicCompletionResponse, AnthropicModels,
+  ChatResponse,
+  ENDPOINTS, ModelType,
+  ModerationResponse,
+  AIModelInterface, AnthropicModelInterface
+} from '@mrck-labs/api-interface';
 
-export class AnthropicModel implements AIModel {
+export class AnthropicModel implements AIModelInterface {
+  public type: ModelType = 'anthropic';
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.anthropic.baseUrl;
   private systemMessage: string = "Your name is Anton. Be respectful.";
+  private readonly defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620'
 
-  constructor(private apiKey: string) {
+  constructor(private apiKey: string, defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620') {
     if (isBrowser) {
       throwErrorIfBrowser("AnthropicModel");
     }
+
+    this.defaultModel = defaultModel
 
     this.api = axios.create({
       baseURL: this.baseUrl,
@@ -24,15 +34,20 @@ export class AnthropicModel implements AIModel {
     });
   }
 
-  setSystemMessage(message: string) {
+  public moderation(message: string): Promise<ModerationResponse> {
+        throw new Error("Method not implemented.");
+  }
+
+  public setSystemMessage(message: string) {
     this.systemMessage = message;
   }
 
-  async chat(messages: Message[]): Promise<ChatResponse> {
+  async chat(args: AnthropicChatArgs): Promise<ChatResponse> {
+    const { messages , model = this.defaultModel } = args;
     try {
       const response = await this.api.post<AnthropicCompletionResponse>(ENDPOINTS.anthropic.v1.completions, {
         system: this.systemMessage,
-        model: "claude-3-5-sonnet-20240620",
+        model,
         max_tokens: 1024,
         messages,
       });

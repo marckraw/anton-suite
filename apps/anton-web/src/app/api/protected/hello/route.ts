@@ -1,5 +1,5 @@
 import {createLogger} from "@/app/api-src/logger";
-import {initializeAnton} from "@/app/api-src/anton";
+import {initializeAnthropicAnton} from "@/app/api-src/anton";
 
 const logger = createLogger({name: "hello", level: "info"})
 
@@ -8,19 +8,21 @@ const logger = createLogger({name: "hello", level: "info"})
 export async function GET(request: Request) {
     logger.info("GET /hello")
 
-    const anton = initializeAnton()
+    const anton = initializeAnthropicAnton()
 
     if(anton.error) {
         return Response.json(anton.error)
     }
 
 
-    const response = await anton.client.chat([
-        {
-            content: 'Hey there, how are you ? :)',
-            role: 'user',
-        },
-    ]);
+    const response = await anton.client.ai.chat({
+        messages: [
+            {
+                content: 'Hey there, how are you ? :)',
+                role: 'user',
+            },
+        ]
+    });
 
     return Response.json({data: response})
 }
@@ -29,7 +31,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
     logger.info("POST /hello")
 
-    const anton = initializeAnton()
+    const anton = initializeAnthropicAnton()
 
     if(anton.error) {
         return Response.json(anton.error)
@@ -37,12 +39,14 @@ export async function POST(request: Request) {
 
     const {message} = await request.json();
 
-    const response = await anton.client.chat([
-        {
-            content: message,
-            role: 'user',
-        },
-    ]);
+    const response = await anton.client.ai.chat({
+        messages: [
+            {
+                content: message,
+                role: 'user',
+            },
+        ]
+    });
 
     return Response.json({data: response})
 }

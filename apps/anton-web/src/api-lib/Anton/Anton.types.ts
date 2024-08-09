@@ -10,4 +10,4 @@ export interface APIKeys {
 }
 
 export type AnthropicModels = "claude-3-5-sonnet-20240620";
-export type OpenAIModels = "";
+export type OpenAIModels = "gpt-4o";

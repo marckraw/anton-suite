@@ -1,18 +1,28 @@
 import axios from "axios";
 import type { AxiosInstance } from "axios";
-import { AIModel, Message } from "./base";
 import { isBrowser, throwErrorIfBrowser } from '@mrck-labs/utils';
-import { ENDPOINTS, OpenAICompletionResponse } from '@mrck-labs/api-interface';
+import {
+  AIModelInterface,
+  ChatArgs,
+  ENDPOINTS,
+  Message, ModelType,
+  ModerationResponse,
+  OpenAICompletionResponse, OpenAIModels
+} from '@mrck-labs/api-interface';
 
-export class OpenAIModel implements AIModel {
+export class OpenAIModel implements AIModelInterface {
+    public type: ModelType = 'openai';
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.openai.baseUrl;
   private systemMessage: string = "Your name is Anton. Be respectful."
+  private readonly defaultModel: OpenAIModels = 'gpt-4o'
 
-  constructor(private apiKey: string) {
+  constructor(private apiKey: string, defaultModel: OpenAIModels) {
     if (isBrowser) {
       throwErrorIfBrowser("OpenAIModel");
     }
+
+    this.defaultModel = defaultModel
 
     this.api = axios.create({
       baseURL: this.baseUrl,
@@ -27,10 +37,25 @@ export class OpenAIModel implements AIModel {
     this.systemMessage = message;
   }
 
-  async chat(messages: Message[]): Promise<any> {
+  async moderation(message: string): Promise<ModerationResponse> {
+    try {
+      const response = await this.api.post<ModerationResponse>(ENDPOINTS.openai.v1.moderations, {
+        input: message
+      });
+
+      return response.data
+    } catch (error) {
+      console.error("OpenAI API error:", error);
+      throw error;
+    }
+  }
+
+
+  async chat(args: ChatArgs): Promise<any> {
+    const {messages, model = this.defaultModel} = args;
     try {
       const response = await this.api.post<OpenAICompletionResponse>(ENDPOINTS.openai.v1.completions, {
-        model: 'gpt-4o',
+        model,
         messages: [{role: 'system', content: this.systemMessage}, ...messages]
       })
 
@@ -44,4 +69,6 @@ export class OpenAIModel implements AIModel {
       throw error;
     }
   }
+
+
 }

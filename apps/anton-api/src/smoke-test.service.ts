@@ -9,11 +9,13 @@ export class SmokeTestService {
   async smokeTest() {
     logger.info('logging from SmokeTestService.smokeTest()');
     const apiKey = process.env.ANTHROPIC_API_KEY;
-    const anton = new AntonSDK({ apiKey: apiKey, type: 'anthropic' });
+    const anton = AntonSDK.create({ apiKey: apiKey, type: 'anthropic' });
 
-    const response = await anton.chat([
-      { role: 'user', content: 'Hello, from API!' },
-    ]);
+    const response = await anton.chat({
+      messages: [
+        { role: 'user', content: 'Hello, from API!' },
+      ]
+    });
 
     return response;
   }
