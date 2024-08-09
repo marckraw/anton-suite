@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mrck-labs/anton-sdk-test": "^0.0.6",
+    "@mrck-labs/anton-sdk-test": "*",
     "cookies-next": "^4.2.1",
     "jsonwebtoken": "^9.0.2",
     "next": "14.2.5",
