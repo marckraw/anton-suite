@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "ANTON_WEB_API_KEY"],
+  "globalEnv": ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "ANTON_WEB_API_KEY", "AUTH_PASSWORD", "SESSION_SECRET"],
   "tasks": {
     "dev": {
       "cache": false
