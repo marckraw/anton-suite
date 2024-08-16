@@ -13,7 +13,7 @@ export class AntonSDK {
       case "anthropic":
         return new AnthropicModel(apiKey, model ? model : 'claude-3-5-sonnet-20240620') as AnthropicModelInterface;
       case "openai":
-        return new OpenAIModel(apiKey, model ? model : 'gpt-4o') as OpenAIModelInterface;
+        return new OpenAIModel(apiKey, model ? model : 'gpt-4o', config?.supportedModelsApiKeys) as OpenAIModelInterface;
       default:
         throw new Error(`Unsupported model type: ${type}`);
     }

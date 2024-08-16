@@ -10,8 +10,7 @@ import {
   AIModelInterface, AnthropicModelInterface
 } from '@mrck-labs/api-interface';
 
-export class AnthropicModel implements AIModelInterface {
-  public type: ModelType = 'anthropic';
+export class AnthropicModel implements AnthropicModelInterface {
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.anthropic.baseUrl;
   private systemMessage: string = "Your name is Anton. Be respectful.";
