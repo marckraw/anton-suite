@@ -21,7 +21,7 @@ export const initializeAnthropicAnton = () => {
     }
 
 
-    const anton = AntonSDK.create({ type, apiKey, model});
+    const anton = AntonSDK.create({ type, apiKey, model });
 
 
     return {
