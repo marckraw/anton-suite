@@ -2,6 +2,8 @@ import { AnthropicModel } from "./anthropic";
 import { OpenAIModel } from './openai';
 import {OpenAIFactoryConfig, OpenAIModelInterface, AnthropicFactoryConfig, AnthropicModelInterface} from "@mrck-labs/api-interface";
 
+console.log("hello world1")
+
 
 export class AntonSDK {
   static create(config: AnthropicFactoryConfig): AnthropicModelInterface;
