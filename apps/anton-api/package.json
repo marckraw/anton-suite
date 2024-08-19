@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@mrck-labs/anton-sdk": "^0.0.6",
+    "@mrck-labs/anton-sdk": "*",
     "@mrck-labs/api-interface": "*",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.3",
