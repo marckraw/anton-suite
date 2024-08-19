@@ -1,14 +1,15 @@
 {
   "name": "@mrck-labs/anton-sdk",
-  "version": "0.0.6",
+  "version": "0.4.12",
   "description": "",
   "type": "commonjs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "scripts": {
     "clean": "npx rimraf dist",
+    "nuke": "npx rimraf node_modules && npm run clean",
     "dev": "tsup --watch",
-    "build": "npm run clean && tsup",
+    "build": "npx rimraf dist && tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "prerelease": "npm version patch",

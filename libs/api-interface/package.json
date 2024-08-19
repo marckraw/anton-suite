@@ -7,8 +7,9 @@
   "module": "dist/index.mjs",
   "scripts": {
     "clean": "npx rimraf dist",
+    "nuke": "npx rimraf node_modules && npm run clean",
     "dev": "tsup --watch",
-    "build": "npm run clean && tsup",
+    "build": "npx rimraf dist && tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "prerelease": "npm version patch",
@@ -27,6 +28,9 @@
   },
   "dependencies": {
     "@mrck-labs/utils": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@typed/node": "^6.7.0",

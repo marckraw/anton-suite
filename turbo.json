@@ -5,6 +5,9 @@
     "dev": {
       "cache": false
     },
+    "nuke": {
+        "cache": false
+    },
     "build": {
       "cache": true,
       "dependsOn": ["^build"],
