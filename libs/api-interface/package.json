@@ -28,6 +28,9 @@
   "dependencies": {
     "@mrck-labs/utils": "*"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@typed/node": "^6.7.0",
     "tsup": "^8.2.4",
