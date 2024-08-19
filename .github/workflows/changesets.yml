@@ -33,11 +33,11 @@ jobs:
 
       - name: Install Deps
         run: |
-          npm install
+          pnpm install
 
       - name: Build, run tests and lint
         run: |
-          npm run build
-          npm run changeset status --since origin/master
-#          npm run test
-#          npm run lint
+          pnpm run build
+          pnpm run changeset status --since origin/master
+#          pnpm run test
+#          pnpm run lint

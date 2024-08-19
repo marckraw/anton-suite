@@ -33,10 +33,10 @@ jobs:
 
       - name: Install Deps
         run: |
-          npm install
+          pnpm install
 
       - name: Build, run tests and lint
         run: |
-          npm run build
-#          npm run test
-#          npm run lint
+          pnpm run build
+#          pnpm run test
+#          pnpm run lint
