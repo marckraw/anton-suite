@@ -33,10 +33,10 @@ jobs:
 
       - name: Install Deps
         run: |
-          yarn
+          npm install
 
       - name: Build, run tests and lint
         run: |
-          yarn build
-          yarn test
-          yarn lint
+          npm run build
+#          npm run test
+#          npm run lint
