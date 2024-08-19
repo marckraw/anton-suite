@@ -6,7 +6,6 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "scripts": {
-    "clean": "npx rimraf dist",
     "dev": "tsup --watch",
     "build": "npm run clean && tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
