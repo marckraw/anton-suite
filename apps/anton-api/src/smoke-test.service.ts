@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AntonSDK } from '@mrck-labs/anton-sdk-test';
+import { AntonSDK } from '@mrck-labs/anton-sdk';
 import {createLogger} from '@mrck-labs/utils'
 
 const logger = createLogger('anton-api:SmokeTestService');

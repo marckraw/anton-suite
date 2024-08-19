@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {  createLogger } from '@mrck-labs/utils';
-import { AntonSDK } from '@mrck-labs/anton-sdk-test';
+import { AntonSDK } from '@mrck-labs/anton-sdk';
 import {anthropicModels} from '@mrck-labs/api-interface'
 import { CreateCompletionDto } from './dto/CreateCompletion.dto';
 

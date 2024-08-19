@@ -1,4 +1,4 @@
-import {AntonSDK} from "@mrck-labs/anton-sdk-test";
+import {AntonSDK} from "@mrck-labs/anton-sdk";
 import {AnthropicModels, OpenAIModels} from "@mrck-labs/api-interface";
 
 export const initializeAnthropicAnton = () => {

@@ -32,7 +32,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@mrck-labs/anton-sdk-test": "*",
+    "@mrck-labs/anton-sdk": "*",
     "meow": "^13.2.0"
   },
   "devDependencies": {

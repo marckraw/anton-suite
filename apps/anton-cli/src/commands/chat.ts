@@ -1,4 +1,4 @@
-import {AntonSDK} from "@mrck-labs/anton-sdk-test";
+import {AntonSDK} from "@mrck-labs/anton-sdk";
 
 
 export const chat = async (args) => {

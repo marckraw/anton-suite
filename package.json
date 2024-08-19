@@ -16,8 +16,9 @@
     "build": "turbo run build",
     "release:lib-a": "npm run release -w @mrck-labs/lib-a",
     "release:utils": "npm run release -w @mrck-labs/utils",
-    "release": "npm run release:lib-a && npm run release:utils",
-    "graph:build": "npx turbo run build --graph=graph.html"
+    "graph:build": "npx turbo run build --graph=graph.html",
+    "changeset": "changeset",
+    "release": "turbo build && changeset publish"
   },
   "keywords": [],
   "author": "",
@@ -26,8 +27,13 @@
     "apps/*",
     "libs/*"
   ],
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.8"
+  },
   "devDependencies": {
-    "turbo": "^2.0.12"
+    "turbo": "^2.0.12",
+    "@changesets/cli": "^2.27.3",
+    "@changesets/get-release-plan": "^4.0.0"
   },
   "packageManager": "npm@10.2.4"
 }
