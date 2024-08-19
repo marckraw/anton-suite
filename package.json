@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "turbo clean",
     "dev": "turbo run dev",
     "dev:vite-react-app": "npm run dev -w @mrck-labs/vite-react-app",
     "dev:utils": "npm run dev -w @mrck-labs/utils",

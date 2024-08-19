@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "rm -rf .next",
+    "clean": "npx rimraf node_modules && npx rimraf .next",
     "dev": "npm run clean && next dev -p 3002 | pino-pretty",
     "build": "next build | pino-pretty",
     "start": "next start | pino-pretty",
