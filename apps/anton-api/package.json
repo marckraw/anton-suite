@@ -6,7 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "clean": "npx rimraf node_modules && npx rimraf dist",
+    "clean": "npx rimraf dist",
+    "nuke": "npx rimraf node_modules && pnpm run clean",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "scripts": {
-    "clean": "npx rimraf node_modules && npx rimraf dist",
+    "clean": "npx rimraf dist",
+    "nuke": "npx rimraf node_modules && pnpm run clean",
     "dev": "tsup --watch",
     "build": "npm run clean && tsup",
     "anton": "node --env-file=.env dist/index.js",

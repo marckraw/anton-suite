@@ -5,7 +5,7 @@
     "dev": {
       "cache": false
     },
-    "clean": {
+    "nuke": {
         "cache": false
     },
     "build": {
