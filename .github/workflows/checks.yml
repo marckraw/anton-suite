@@ -26,24 +26,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9.7.1
-          run_install: false
-
-      - name: Install Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'pnpm'
+          node-version: ${{ matrix.node-version }}
 
       - name: Install Deps
         run: |
-          pnpm install
+          npm install
 
       - name: Build, run tests and lint
         run: |
-          pnpm run build
-#          pnpm run test
-#          pnpm run lint
+          npm run build
+#          npm run test
+#          npm run lint

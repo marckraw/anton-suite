@@ -7,7 +7,7 @@
   "module": "dist/index.mjs",
   "scripts": {
     "clean": "npx rimraf dist",
-    "nuke": "npx rimraf node_modules && pnpm run clean",
+    "nuke": "npx rimraf node_modules && npm run clean",
     "dev": "tsup --watch",
     "build": "npx rimraf dist && tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@mrck-labs/api-interface": "workspace:*",
+    "@mrck-labs/api-interface": "*",
     "@mrck-labs/utils": "1.2.3",
     "axios": "^1.7.3"
   },
