@@ -1,5 +1,11 @@
 # @mrck-labs/anton-sdk
 
+## 1.0.2
+
+### Patch Changes
+
+- d45a5e1: just some try out
+
 ## 1.0.1
 
 ### Patch Changes
