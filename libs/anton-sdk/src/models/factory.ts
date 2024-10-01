@@ -7,6 +7,7 @@ export class AntonSDK {
   static create(config: AnthropicFactoryConfig): AnthropicModelInterface;
   static create(config: OpenAIFactoryConfig): OpenAIModelInterface;
   static create(config: AnthropicFactoryConfig | OpenAIFactoryConfig) {
+    console.log("creating anton!");
     const {type, apiKey, model} = config;
 
     switch (type) {
