@@ -21,23 +21,13 @@ export const ConversationPane: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    console.log("Submitting mother fucker")
     if (!input.trim()) return;
 
     setConversation([...conversation, { role: "user", content: input }]);
 
     setInput("");
-
-    console.log("This is conversation:");
-    console.log(conversation);
-
-    console.log("current message: ");
-    console.log(input);
-
-    try {
-      console.log("aksj.dkjasld");
-    } catch (e) {
-      console.log("Whatever...");
-    }
 
     const messages: ConversationMessages = [
       {
@@ -46,12 +36,15 @@ export const ConversationPane: React.FC = () => {
       },
     ];
 
+    console.log("My Messages to send: ")
+    console.log(messages)
+
     try {
       const response: any = await ai({ messages });
       const { data, ...rest } = response;
       console.log("This is maazing response from api: ");
       console.log(data);
-      setConversation((prev) => [...prev, ...data.messages]);
+      setConversation((prev) => [...prev, ...data.data]);
     } catch (error) {
       console.error("Error getting AI response:", error);
       setConversation((prev) => [

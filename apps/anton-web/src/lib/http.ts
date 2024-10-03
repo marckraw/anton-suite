@@ -9,7 +9,10 @@ const baseApiRequestURL = `${baseAppUrl}/${baseApiUrl}`;
 
 export const ai = async ({ messages }: { messages: ConversationMessages }) => {
   try {
-    const url = `${baseApiRequestURL}/ai`;
+    const url = `${baseApiRequestURL}/protected/chat`;
+
+    console.log("Url we are making request to: ")
+    console.log(url)
     const response = await axios.post(
       url,
       {
@@ -17,8 +20,8 @@ export const ai = async ({ messages }: { messages: ConversationMessages }) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_ANTON_WEB_API_KEY}`
         },
       },
     );

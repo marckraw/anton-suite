@@ -11,6 +11,9 @@ interface ChatRequest {
 export async function POST(request: Request) {
     logger.info("POST /chat")
 
+    console.log("This is my request")
+    console.log(request)
+
     const anton = initializeAnthropicAnton()
 
     if(anton.error) {
