@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@mrck-labs/api-interface": "*",
+    "@mrck-labs/api-interface": "^1.1.0",
     "@mrck-labs/utils": "2.0.1",
     "axios": "^1.7.3"
   },

@@ -24,7 +24,7 @@ export interface AIModelInterface {
 }
 
 export interface OpenAIModelInterface extends AIModelInterface {
-    chat(args: OpenAIChatArgs): Promise<ChatResponse>;
+    chat(args: OpenAIChatArgs): Promise<ChatResponse | ReadableStream>;
     modelsList(): Promise<ModelsListResponse>;
     createImage(args: OpenAICreateImageParams): Promise<CreateImageResponse>
     createImageWithLeonardo(args: LeonardoAICreateImageParams): Promise<LeonardoAICreateImageResponse>
