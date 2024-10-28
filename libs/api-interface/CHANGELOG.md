@@ -1,5 +1,11 @@
 # @mrck-labs/api-interface
 
+## 1.1.0
+
+### Minor Changes
+
+- 4e49fa0: add stream support to anthropic anton
+
 ## 1.0.1
 
 ### Patch Changes
