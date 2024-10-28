@@ -1,5 +1,13 @@
 # @mrck-labs/anton-sdk
 
+## 1.1.1
+
+### Patch Changes
+
+- c04e694: openai stream feature + update anton-sdk deps
+- Updated dependencies [c04e694]
+  - @mrck-labs/api-interface@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
