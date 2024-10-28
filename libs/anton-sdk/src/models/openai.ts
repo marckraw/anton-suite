@@ -65,11 +65,14 @@ export class OpenAIModel implements OpenAIModelInterface {
 
 
   async chat(args: ChatArgs): Promise<any> {
-    const {messages, model = this.defaultModel} = args;
+    const {messages, model = this.defaultModel, stream = false} = args;
     try {
       const response = await this.api.post<OpenAICompletionResponse>(ENDPOINTS.openai.v1.completions, {
         model,
-        messages: [{role: 'system', content: this.systemMessage}, ...messages]
+        messages: [{role: 'system', content: this.systemMessage}, ...messages],
+        stream,
+      }, {
+        responseType: stream ? 'stream' : 'json'
       })
 
 
