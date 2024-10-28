@@ -41,16 +41,23 @@ export class AnthropicModel implements AnthropicModelInterface {
     this.systemMessage = message;
   }
 
-  async chat(args: AnthropicChatArgs): Promise<ChatResponse> {
-    const { messages , model = this.defaultModel } = args;
+  async chat(args: AnthropicChatArgs): Promise<ChatResponse | ReadableStream> {
+    const { messages, model = this.defaultModel, stream = false } = args;
     try {
       const response = await this.api.post<AnthropicCompletionResponse>(ENDPOINTS.anthropic.v1.completions, {
         system: this.systemMessage,
         model,
         max_tokens: 1024,
         messages,
+        stream,
+      }, {
+        responseType: stream ? 'stream' : 'json'
       });
 
+
+      if (stream) {
+        return response.data as unknown as ReadableStream;
+      }
 
       const role = response.data.role;
       const content = response.data.content[0].text;
