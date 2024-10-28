@@ -1,5 +1,16 @@
 # @mrck-labs/anton-sdk
 
+## 1.1.0
+
+### Minor Changes
+
+- 4e49fa0: add stream support to anthropic anton
+
+### Patch Changes
+
+- Updated dependencies [4e49fa0]
+  - @mrck-labs/api-interface@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes
