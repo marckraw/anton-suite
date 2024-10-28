@@ -18,7 +18,7 @@ export interface OpenAIFactoryConfig extends BaseFactoryConfig {
 }
 
 export interface AIModelInterface {
-    chat(args: ChatArgs): Promise<ChatResponse>;
+    chat(args: ChatArgs): Promise<ChatResponse | ReadableStream>;
     setSystemMessage?(message: string): void;
     moderation(message: string): Promise<ModerationResponse>
 }
@@ -31,7 +31,7 @@ export interface OpenAIModelInterface extends AIModelInterface {
 }
 
 export interface AnthropicModelInterface extends AIModelInterface {
-    chat(args: AnthropicChatArgs): Promise<ChatResponse>;
+    chat(args: AnthropicChatArgs): Promise<ChatResponse | ReadableStream>;
 }
 
 export interface LeonardoAIInterface {
@@ -41,6 +41,7 @@ export interface LeonardoAIInterface {
 export interface ChatArgs {
     model?: string
     messages: Message[]
+    stream?: boolean
 }
 
 export interface AnthropicChatArgs extends ChatArgs {
