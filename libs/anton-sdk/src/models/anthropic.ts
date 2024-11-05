@@ -16,6 +16,8 @@ export class AnthropicModel implements AnthropicModelInterface {
   private systemMessage: string = "Your name is Anton. Be respectful.";
   private readonly defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620'
 
+  console.log("whatever")
+
   constructor(private apiKey: string, defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620') {
     if (isBrowser) {
       throwErrorIfBrowser("AnthropicModel");
