@@ -1,0 +1,17 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@mrck-labs/anton-api": "1.0.1",
+    "@mrck-labs/anton-cli": "1.0.1",
+    "@mrck-labs/anton-web": "1.0.1",
+    "@mrck-labs/vite-react-app": "1.0.1",
+    "@mrck-labs/anton-sdk": "1.1.1",
+    "@mrck-labs/api-interface": "1.1.1",
+    "@mrck-labs/lib-a": "2.0.1",
+    "@mrck-labs/lib-b-non-releasable": "1.0.0",
+    "@mrck-labs/lib-c-non-releasable-typescript": "1.0.0",
+    "@mrck-labs/utils": "2.0.1"
+  },
+  "changesets": []
+}
