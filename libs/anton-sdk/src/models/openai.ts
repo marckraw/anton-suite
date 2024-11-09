@@ -118,4 +118,15 @@ export class OpenAIModel implements OpenAIModelInterface {
       throw error;
     }
   }
+
+  public debug() {
+    console.log("debugging")
+    return {
+      company: "openai",
+      baseUrl: this.baseUrl,
+      model: this.defaultModel,
+      systemMessage: this.systemMessage,
+      api: this.api,
+    }
+  }
 }

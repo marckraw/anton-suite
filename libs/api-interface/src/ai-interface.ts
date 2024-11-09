@@ -17,10 +17,19 @@ export interface OpenAIFactoryConfig extends BaseFactoryConfig {
     }
 }
 
+export interface DebugInfo {
+    company: string
+    baseUrl: string
+    model: string
+    systemMessage: string
+    api: any
+}
+
 export interface AIModelInterface {
     chat(args: ChatArgs): Promise<ChatResponse | ReadableStream>;
     setSystemMessage?(message: string): void;
     moderation(message: string): Promise<ModerationResponse>
+    debug(): DebugInfo
 }
 
 export interface OpenAIModelInterface extends AIModelInterface {
