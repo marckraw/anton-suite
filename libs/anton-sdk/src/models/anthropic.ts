@@ -44,7 +44,7 @@ export class AnthropicModel implements AnthropicModelInterface {
     this.systemMessage = message;
   }
 
-  async chat(args: AnthropicChatArgs): Promise<ChatResponse | ReadableStream> {
+  public async chat(args: AnthropicChatArgs): Promise<ChatResponse | ReadableStream> {
     const { messages, model = this.defaultModel, stream = false } = args;
     try {
       const response = await this.api.post<AnthropicCompletionResponse>(ENDPOINTS.anthropic.v1.completions, {
@@ -69,6 +69,17 @@ export class AnthropicModel implements AnthropicModelInterface {
     } catch (error) {
       console.error("Anthropic API error:", error);
       throw error;
+    }
+  }
+
+  public debug() {
+    console.log("debugging")
+    return {
+      company: "anthropic",
+      baseUrl: this.baseUrl,
+      model: this.defaultModel,
+      systemMessage: this.systemMessage,
+      api: this.api,
     }
   }
 }
