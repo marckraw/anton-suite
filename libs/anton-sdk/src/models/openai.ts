@@ -122,7 +122,7 @@ export class OpenAIModel implements OpenAIModelInterface {
   public debug() {
     console.log("debugging")
     return {
-      company: "anthropic",
+      company: "openai",
       baseUrl: this.baseUrl,
       model: this.defaultModel,
       systemMessage: this.systemMessage,
