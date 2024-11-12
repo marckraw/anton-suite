@@ -14,10 +14,10 @@ export class AnthropicModel implements AnthropicModelInterface {
   private api: AxiosInstance;
   private baseUrl = ENDPOINTS.anthropic.baseUrl;
   private systemMessage: string = "Your name is Anton. Be respectful.";
-  private readonly defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620'
+  private readonly defaultModel: AnthropicModels = 'claude-3-5-sonnet-20241022'
 
 
-  constructor(private apiKey: string, defaultModel: AnthropicModels = 'claude-3-5-sonnet-20240620') {
+  constructor(private apiKey: string, defaultModel: AnthropicModels = 'claude-3-5-sonnet-20241022') {
     console.log("whatever")
 
     if (isBrowser) {
