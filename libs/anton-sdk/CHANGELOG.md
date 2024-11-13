@@ -1,5 +1,13 @@
 # @mrck-labs/anton-sdk
 
+## 1.2.1
+
+### Patch Changes
+
+- dac74b2: update default anthropic model for sonnet
+- Updated dependencies [dac74b2]
+  - @mrck-labs/api-interface@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes
