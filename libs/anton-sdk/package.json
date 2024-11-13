@@ -1,6 +1,6 @@
 {
   "name": "@mrck-labs/anton-sdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "type": "commonjs",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@mrck-labs/api-interface": "^1.2.0",
+    "@mrck-labs/api-interface": "^1.2.1",
     "@mrck-labs/utils": "2.0.1",
     "axios": "^1.7.3"
   },

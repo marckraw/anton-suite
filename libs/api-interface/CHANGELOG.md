@@ -1,5 +1,11 @@
 # @mrck-labs/api-interface
 
+## 1.2.1
+
+### Patch Changes
+
+- dac74b2: update default anthropic model for sonnet
+
 ## 1.2.0
 
 ### Minor Changes
