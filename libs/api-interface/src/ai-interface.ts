@@ -160,7 +160,7 @@ export interface Message {
     content: string;
 }
 
-export const anthropicModels = ['claude-3-5-sonnet-20240620'] as const
+export const anthropicModels = ['claude-3-5-sonnet-20240620', "claude-3-5-sonnet-20241022"] as const
 export type AnthropicModels = typeof anthropicModels[number]
 
 // https://platform.openai.com/docs/models
