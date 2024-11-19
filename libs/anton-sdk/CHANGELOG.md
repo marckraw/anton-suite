@@ -1,5 +1,11 @@
 # @mrck-labs/anton-sdk
 
+## 1.2.2
+
+### Patch Changes
+
+- 4eb3bf6: add ability to generate and wait for generation from leonardo ai
+
 ## 1.2.1
 
 ### Patch Changes
