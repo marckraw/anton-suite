@@ -60,6 +60,7 @@ export class LeonardoAIModel implements LeonardoAIInterface {
             if (response.data.generations_by_pk.status === 'FAILED') {
                 throw new Error('Image generation failed');
             }
+            console.log("waiting for image generation")
 
             attempts++;
             await new Promise(resolve => setTimeout(resolve, 1000));
