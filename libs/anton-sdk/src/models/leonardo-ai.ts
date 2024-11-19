@@ -63,7 +63,7 @@ export class LeonardoAIModel implements LeonardoAIInterface {
             console.log("waiting for image generation")
 
             attempts++;
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 2000));
         }
         
         throw new Error('Timeout waiting for image generation');
