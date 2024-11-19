@@ -111,8 +111,19 @@ export class OpenAIModel implements OpenAIModelInterface {
   async createImageWithLeonardo(args: LeonardoAICreateImageParams): Promise<LeonardoAICreateImageResponse> {
     try {
       console.log(this.supportModels.leonardoAI)
-      const response = await this.supportModels.leonardoAI.createImage({...args})
-      return response;
+      const response = await this.supportModels.leonardoAI.createImage({...args}) as {
+        sdGenerationJob: {
+          generationId: string,
+          apiCreditCost: number
+        }
+      }
+
+      const imageUrl = await this.supportModels.leonardoAI.getGeneratedImageUrl(response.sdGenerationJob.generationId)
+
+      return {
+        imageUrl,
+        apiCreditCost: response.sdGenerationJob.apiCreditCost
+      };
     } catch (error) {
       console.error("OpenAI API / LeonardoAI API error:", error);
       throw error;
