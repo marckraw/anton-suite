@@ -35,7 +35,6 @@ export class OpenAIModel implements OpenAIModelInterface {
       },
     });
 
-
     console.log("if support models passed in", supportModelsApiKeys)
 
     if(supportModelsApiKeys) {
@@ -75,6 +74,10 @@ export class OpenAIModel implements OpenAIModelInterface {
         responseType: stream ? 'stream' : 'json'
       })
 
+      if(stream) {
+        return response.data as unknown as ReadableStream;
+      }
+
 
       const role = response.data.choices[0].message.role;
       const content = response.data.choices[0].message.content;
@@ -110,7 +113,6 @@ export class OpenAIModel implements OpenAIModelInterface {
 
   async createImageWithLeonardo(args: LeonardoAICreateImageParams): Promise<LeonardoAICreateImageResponse> {
     try {
-      console.log(this.supportModels.leonardoAI)
       const response = await this.supportModels.leonardoAI.createImage({...args}) as {
         sdGenerationJob: {
           generationId: string,
