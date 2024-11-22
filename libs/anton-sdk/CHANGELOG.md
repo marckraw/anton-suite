@@ -1,5 +1,11 @@
 # @mrck-labs/anton-sdk
 
+## 1.3.0
+
+### Minor Changes
+
+- 5f0b466: Add streaming functionality for Anton openai
+
 ## 1.2.2
 
 ### Patch Changes
