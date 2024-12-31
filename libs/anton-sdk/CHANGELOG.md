@@ -1,5 +1,16 @@
 # @mrck-labs/anton-sdk
 
+## 1.4.0
+
+### Minor Changes
+
+- 7dce03b: open ai model support transcribe with whisper
+
+### Patch Changes
+
+- Updated dependencies [7dce03b]
+  - @mrck-labs/api-interface@1.3.0
+
 ## 1.3.0
 
 ### Minor Changes
