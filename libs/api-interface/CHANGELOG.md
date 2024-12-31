@@ -1,5 +1,11 @@
 # @mrck-labs/api-interface
 
+## 1.3.0
+
+### Minor Changes
+
+- 7dce03b: open ai model support transcribe with whisper
+
 ## 1.2.1
 
 ### Patch Changes
