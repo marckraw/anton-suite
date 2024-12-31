@@ -14,6 +14,7 @@ import {
 import {ModelsListResponse} from "@mrck-labs/api-interface/src";
 import {LeonardoAIModel} from "./leonardo-ai";
 import FormData from 'form-data';
+import type { AudioResponseFormat } from "openai/resources/index";
 
 export class OpenAIModel implements OpenAIModelInterface {
   private api: AxiosInstance;
@@ -141,14 +142,14 @@ export class OpenAIModel implements OpenAIModelInterface {
     }
   }
 
-  async transcribeAudio(pathToFile: string) {
+  async transcribeAudio(pathToFile: string, options: {language: string, responseFormat: AudioResponseFormat} = {language: "en", responseFormat: "json"}) {
     try {
       // Transcribe audio using OpenAI SDK
       const response = await this.openai.audio.transcriptions.create({
         file: fs.createReadStream(pathToFile),
         model: "whisper-1",
-        language: "pl",
-        response_format: 'json'
+        language: options.language,
+        response_format: options.responseFormat
       })
 
         return response
