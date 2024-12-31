@@ -37,6 +37,7 @@ export interface OpenAIModelInterface extends AIModelInterface {
     modelsList(): Promise<ModelsListResponse>;
     createImage(args: OpenAICreateImageParams): Promise<CreateImageResponse>
     createImageWithLeonardo(args: LeonardoAICreateImageParams): Promise<LeonardoAICreateImageResponse>
+    transcribeAudio(pathToFile: string): Promise<any>
 }
 
 export interface AnthropicModelInterface extends AIModelInterface {

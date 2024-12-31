@@ -35,7 +35,8 @@
   "dependencies": {
     "@mrck-labs/api-interface": "^1.2.1",
     "@mrck-labs/utils": "2.0.1",
-    "axios": "^1.7.3"
+    "axios": "^1.7.3",
+    "openai": "^4.77.0"
   },
   "devDependencies": {
     "tsup": "^8.2.4",
