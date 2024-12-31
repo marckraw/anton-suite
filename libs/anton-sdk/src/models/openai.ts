@@ -1,4 +1,7 @@
 import axios from "axios";
+import OpenAI, {toFile} from 'openai'
+import fs from 'fs';
+import { Readable } from 'stream';
 import type { AxiosInstance } from "axios";
 import { isBrowser, throwErrorIfBrowser } from '@mrck-labs/utils';
 import {
@@ -10,9 +13,12 @@ import {
 } from '@mrck-labs/api-interface';
 import {ModelsListResponse} from "@mrck-labs/api-interface/src";
 import {LeonardoAIModel} from "./leonardo-ai";
+import FormData from 'form-data';
+import type { AudioResponseFormat } from "openai/resources/index";
 
 export class OpenAIModel implements OpenAIModelInterface {
   private api: AxiosInstance;
+  private openai: OpenAI;
   private baseUrl = ENDPOINTS.openai.baseUrl;
   private systemMessage: string = "Your name is Anton. Be respectful."
   private readonly defaultModel: OpenAIModels = 'gpt-4o'
@@ -33,6 +39,10 @@ export class OpenAIModel implements OpenAIModelInterface {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.apiKey}`,
       },
+    });
+
+    this.openai = new OpenAI({
+      apiKey: this.apiKey,
     });
 
     console.log("if support models passed in", supportModelsApiKeys)
@@ -129,6 +139,23 @@ export class OpenAIModel implements OpenAIModelInterface {
     } catch (error) {
       console.error("OpenAI API / LeonardoAI API error:", error);
       throw error;
+    }
+  }
+
+  async transcribeAudio(pathToFile: string, options: {language: string, responseFormat: AudioResponseFormat} = {language: "en", responseFormat: "json"}) {
+    try {
+      // Transcribe audio using OpenAI SDK
+      const response = await this.openai.audio.transcriptions.create({
+        file: fs.createReadStream(pathToFile),
+        model: "whisper-1",
+        language: options.language,
+        response_format: options.responseFormat
+      })
+
+        return response
+    } catch (error) {
+        console.error("Error transcribing audio:", error);
+        throw error;
     }
   }
 

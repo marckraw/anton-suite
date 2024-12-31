@@ -1,3 +1,5 @@
+import type { AudioResponseFormat } from "openai/resources/index";
+
 export type ModelType = "anthropic" | "openai"; // Add other types as needed
 
 export interface BaseFactoryConfig {
@@ -37,6 +39,7 @@ export interface OpenAIModelInterface extends AIModelInterface {
     modelsList(): Promise<ModelsListResponse>;
     createImage(args: OpenAICreateImageParams): Promise<CreateImageResponse>
     createImageWithLeonardo(args: LeonardoAICreateImageParams): Promise<LeonardoAICreateImageResponse>
+    transcribeAudio(pathToFile: string, options: {language: string, responseFormat: AudioResponseFormat}): Promise<any>
 }
 
 export interface AnthropicModelInterface extends AIModelInterface {

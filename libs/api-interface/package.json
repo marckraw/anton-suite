@@ -27,7 +27,8 @@
     ]
   },
   "dependencies": {
-    "@mrck-labs/utils": "*"
+    "@mrck-labs/utils": "*",
+    "openai": "^4.77.0"
   },
   "publishConfig": {
     "access": "public"
